@@ -4,7 +4,7 @@ CEMPI is a repository for implementing algorithms and tools related to the conte
 
 ## Project Description
 
-CEMPI integrates partitioning and clustering algorithms to capture mutation positions (bases and regions) and their impact across genomic sequences. The repository serves as a toolkit for bioinformaticians and researchers studying evolutionary genomics.
+CEMPI integrates partitioning and clustering algorithms to capture mutation positions (bases and regions) and their impact across DNA/RNA/protein sequences. The repository serves as a toolkit for bioinformaticians and researchers studying evolutionary genomics.
 
 ## Directory Structure
 
