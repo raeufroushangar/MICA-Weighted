@@ -1,6 +1,6 @@
 import numpy as np
 from src.mutation_and_weight_assignor import assign_positional_weight
-from src.normalization import weighted_ave_normalization
+from src.normalizer import weighted_ave_normalization  # Updated import
 
 def calculate_subsubregion_weights(subsubregion, subsubregion_mutations):
     """

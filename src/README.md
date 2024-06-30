@@ -11,7 +11,7 @@ This directory contains the source code files for the CEMPI project. Each file i
   - Contains the `assign_mutations` function, which assigns mutations to their respective sub-subregions.
   - Contains the `assign_positional_weight` function, which calculates the positional weight based on distance.
 
-- **normalization.py**
+- **normalizer.py**
   - Contains the `weighted_ave_normalization` function, which normalizes the weighted impact values by calculating their average.
 
 - **weight_calculator.py**
