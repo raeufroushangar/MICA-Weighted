@@ -1,0 +1,123 @@
+from collections import defaultdict
+from src.mutation_and_weight_assignor import assign_mutations
+from src.weight_calculator import calculate_subsubregion_weights
+
+def extract_boundaries(subsubregions):
+    """
+    Extract unique boundaries from subsubregions.
+
+    Args:
+    - subsubregions (list): List of subsubregions.
+
+    Returns:
+    - list: Sorted list of unique boundaries.
+    """
+    boundaries = set()
+    for sub in subsubregions:
+        boundaries.add(sub[0][2])  # start
+        boundaries.add(sub[0][3] + 1)  # end
+    return sorted(boundaries)
+
+def create_combined_intervals(sorted_boundaries):
+    """
+    Create combined intervals from sorted boundaries.
+
+    Args:
+    - sorted_boundaries (list): Sorted list of boundaries.
+
+    Returns:
+    - list: List of combined intervals.
+    """
+    combined_intervals = []
+    for i in range(len(sorted_boundaries) - 1):
+        start = sorted_boundaries[i]
+        end = sorted_boundaries[i + 1] - 1
+        combined_intervals.append([start, end])
+    return combined_intervals
+
+def map_subsubregions_to_intervals(subsubregions):
+    """
+    Map subsubregions to intervals.
+
+    Args:
+    - subsubregions (list): List of subsubregions.
+
+    Returns:
+    - dict: Dictionary mapping intervals to subsubregions.
+    """
+    interval_dict = defaultdict(list)
+    for sub in subsubregions:
+        sub_start = sub[0][2]
+        sub_end = sub[0][3]
+        interval_dict[(sub_start, sub_end)].append(sub)
+    return interval_dict
+
+def calculate_overlap_and_combine(interval, interval_dict):
+    """
+    Calculate overlap and combine weights and mutations for an interval.
+
+    Args:
+    - interval (tuple): Interval represented as (start, end).
+    - interval_dict (dict): Dictionary mapping intervals to subsubregions.
+
+    Returns:
+    - tuple: Combined interval data including mutations and average weight.
+    """
+    start, end = interval
+    total_weight = 0
+    total_length = 0
+    combined_mutations = []
+
+    for (sub_start, sub_end), subs in interval_dict.items():
+        if sub_end >= start and sub_start <= end:
+            for sub in subs:
+                overlap_start = max(start, sub_start)
+                overlap_end = min(end, sub_end)
+                overlap_length = overlap_end - overlap_start + 1
+                weight = sub[2]  # Positional weight
+                total_weight += weight * overlap_length
+                total_length += overlap_length
+                for mutation in sub[1]:
+                    if overlap_start <= mutation[0] <= overlap_end:
+                        if mutation not in combined_mutations:
+                            combined_mutations.append(mutation)
+    if total_length > 0:
+        average_weight = total_weight / total_length
+    else:
+        average_weight = 0
+
+    # Check if combined_mutations is empty and set average_weight to 0 if true
+    if not combined_mutations:
+        average_weight = 0
+
+    return (interval, combined_mutations, average_weight)
+
+def combine_and_map_weights_and_mutations(subsubregions1, subsubregions2):
+    """
+    Combine and map weights and mutations for two sets of subsubregions.
+
+    Args:
+    - subsubregions1 (list): First list of subsubregions.
+    - subsubregions2 (list): Second list of subsubregions.
+
+    Returns:
+    - list: Combined and mapped data for the subsubregions.
+    """
+    # Extract and sort boundaries
+    boundaries1 = extract_boundaries(subsubregions1)
+    boundaries2 = extract_boundaries(subsubregions2)
+    sorted_boundaries = sorted(set(boundaries1 + boundaries2))
+
+    # Create combined intervals
+    combined_intervals = create_combined_intervals(sorted_boundaries)
+
+    # Map subsubregions to intervals
+    subsubregions = subsubregions1 + subsubregions2
+    interval_dict = map_subsubregions_to_intervals(subsubregions)
+
+    # Calculate overlap and combine mutations for each interval
+    mapped_data = []
+    for interval in combined_intervals:
+        mapped_data.append(calculate_overlap_and_combine(interval, interval_dict))
+
+    return mapped_data
