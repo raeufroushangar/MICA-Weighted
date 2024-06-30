@@ -16,3 +16,6 @@ This directory contains the source code files for the CEMPI project. Each file i
 
 - **weight_calculator.py**
   - Contains the `calculate_subsubregion_weights` function, which calculates the weighted impact for a sub-subregion based on mutations and uses the `assign_positional_weight` and `weighted_ave_normalization` functions for its calculations.
+
+- **mutation_quantifier.py**
+  - Contains the `quantify_significant_mutations` function, which quantifies significant mutations by calculating positional weights for sub-subregions using the `partition_seq_length`, `assign_mutations`, and `calculate_subsubregion_weights` functions.
