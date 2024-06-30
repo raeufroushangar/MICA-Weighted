@@ -13,7 +13,7 @@ CEMPI integrates partitioning and clustering algorithms to capture mutation posi
 ## System Requirements
 
 - macOS 10.15 or higher / Windows 10 or higher / Linux
-- Python 3.9 or higher installed
+- Python 3.9 or higher
 - pip3 24
 - *May work with similar versions.
 
