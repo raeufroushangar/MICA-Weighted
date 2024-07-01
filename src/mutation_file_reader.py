@@ -3,10 +3,10 @@ import pandas as pd
 
 def read_mutation_data(file_path):
     """
-    Read mutation positions and impact scores from a CSV or Excel file.
+    Read mutation positions and impact scores from a CSV file.
 
     Args:
-    - file_path (str): Path to the input file.
+    - file_path (str): Path to the input CSV file.
 
     Returns:
     - list of tuples: List of (mutation_position, impact_score) tuples if successful.
@@ -21,15 +21,12 @@ def read_mutation_data(file_path):
         if not os.path.isfile(file_path):
             return "File not found."
         
-        # Check the file extension to determine the format
-        if file_path.endswith('.csv'):
-            df = pd.read_csv(file_path, keep_default_na=False)
-        elif file_path.endswith('.txt') or file_path.endswith('.tab') or file_path.endswith('.tsv'):
-            df = pd.read_csv(file_path, delimiter='\t', keep_default_na=False)
-        elif file_path.endswith('.xlsx'):
-            df = pd.read_excel(file_path, keep_default_na=False)
-        else:
-            return "Invalid file format. Only CSV, tab-delimited TXT/TSV/TAB, and Excel files are supported."
+        # Check the file extension to ensure it is a CSV file
+        if not file_path.endswith('.csv'):
+            return "Invalid file format. Only CSV files are supported."
+
+        # Read the CSV file
+        df = pd.read_csv(file_path, keep_default_na=False)
         
         # Check if the DataFrame has the required columns
         if 'mut_positions' not in df.columns or 'impact_score' not in df.columns:
