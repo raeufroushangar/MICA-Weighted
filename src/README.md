@@ -32,6 +32,9 @@ In this project, the sequence is partitioned into two sets of sub-subregions: on
     - `calculate_overlap_and_combine`
     - `combine_and_map_weights_and_mutations`
 
+- **mutation_file_reader.py**
+  - Contains the `read_mutation_data` function, which reads mutation positions and impact scores from a CSV or Excel file and returns a list of tuples or an error message.
+
 - **data_processor.py**
   - Contains the `process_mutation_data` function, which processes mutation data and returns positional weights and combined data.
 
