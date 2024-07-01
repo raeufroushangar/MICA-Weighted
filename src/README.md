@@ -31,3 +31,10 @@ In this project, the sequence is partitioned into two sets of sub-subregions: on
     - `map_subsubregions_to_intervals`
     - `calculate_overlap_and_combine`
     - `combine_and_map_weights_and_mutations`
+
+- **data_processor.py**
+  - Contains the `process_mutation_data` function, which processes mutation data and returns positional weights and combined data.
+
+- **result_writer.py**
+  - Contains the `write_results_to_csv` function, which writes data to a CSV file.
+  - Contains the `write_processed_data` function, which writes processed data to CSV files.
