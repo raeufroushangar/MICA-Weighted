@@ -14,8 +14,8 @@ CEMPI integrates partitioning and clustering algorithms to capture mutation posi
 ## mutations_data.csv
 
 This file contains sample mutation data with the following columns:
-- `mut_positions`: Mutation positions in the sequence.
-- `impact_score`: Impact score of the mutations.
+- `mut_positions` (integer): Mutation positions in the sequence.
+- `impact_score` (float or integer): Impact score of the mutations.
 
 You should replace the data in this file with your own mutation data before running the analysis.
 
@@ -36,6 +36,7 @@ You should replace the data in this file with your own mutation data before runn
 2. Install required packages:
    ```bash
    pip install -r requirements.txt
+
 3. Run analysis script:
    ```bash
    python3 cempi_main.py -l <sequence_length>
