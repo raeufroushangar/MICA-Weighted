@@ -28,13 +28,17 @@ You should replace the data in this file with your own mutation data before runn
 
 ## Installation Instructions
 
-1. Clone repository:
+1. Clone the repository:
    ```bash
    git clone https://github.com/raeufroushangar/CEMPI.git
    cd CEMPI
+
 2. Install required packages:
    ```bash
    pip install -r requirements.txt
 3. Run analysis script:
    ```bash
-   python3 cempi_analyser.py
+   python3 cempi_main.py -l <sequence_length>
+
+   note: Replace <sequence_length> with the length of your DNA sequence. For example:
+   python3 cempi_main.py -l 100
