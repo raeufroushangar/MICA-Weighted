@@ -15,7 +15,14 @@ def run_ecmpia_analysis(seq_length, plot=False):
     Args:
     - seq_length (int): Length of the DNA sequence.
     - plot (bool): Whether to plot the data or not.
+
+    Raises:
+    - ValueError: If seq_length is greater than 100000.
     """
+    if seq_length > 100000:
+        print("Error: Sequence length must not exceed 100000.")
+        return
+
     # Define the path to the mutations_data.csv file
     current_dir = os.path.dirname(os.path.abspath(__file__))
     mutation_file_path = os.path.join(current_dir, 'mutations_data.csv')
