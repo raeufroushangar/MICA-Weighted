@@ -33,7 +33,7 @@ This directory contains the output results from the algorithm. The following fil
 The following plots are generated and saved in the `CEMPI_result` directory:
 
 1. **Density Plot for Positional Weights**
-   - Path: `CEMPI_result/density_plot_for_positional_weights.png`
+   - Path: ![Density plot](CEMPI_result/density_plot_for_positional_weights.png)
    - Description: This plot shows the density of positional weights across different sub-subregions.
 
 2. **Positional Weights by Mutation Positions**
