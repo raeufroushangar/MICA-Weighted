@@ -1,6 +1,6 @@
 # ECMPIA: Encoding and Clustering Mutations Positional Impact Algorithm
 
-ECMPIA integrates partitioning and clustering methods to capture and analyze the positional impact of mutations (bases and regions) across DNA/RNA/protein sequences. It helps bioinformaticians and researchers identify significant mutation hotspots and their impact on sequences.
+ECMPIA algorithm integrates partitioning and clustering methods to capture and analyze the positional impact of mutations (bases and regions) across DNA/RNA/protein sequences. It helps bioinformaticians and researchers identify significant mutation hotspots and their impact on sequences.
 
 ## Project Description
 
@@ -9,44 +9,47 @@ The ECMPIA repository serves as a toolkit for bioinformaticians and researchers 
 ## Directory Structure
 
 - `src`: Contains source code files.
-- `mutations_data.csv`: Sample CSV file containing mutation data.
+- `mutations_data.csv`: Sample CSV file with mutation data.
 
 ## mutations_data.csv
 
 This file contains sample mutation data with the following columns:
 - `mut_positions` (integer): Mutation positions in the sequence.
-- `impact_score` (float or integer): Impact score of the mutations.
+- `impact_score` (float or integer): Impact score associated with mutations.
 
-You should replace the data in this file with your own mutation data before running the analysis.
+Replace the data in this file with your own mutation data before running the analysis.
+
 
 ## ECMPIA_result
 
 This directory contains the output results from the algorithm. The following files are generated:
-- `positional_weights_0.csv`: Contains mapped mutations and calculated positional weights data for sub-subregions generated from sequence partitioned starting at index 0.
-- `positional_weights_15.csv`: Contains mapped mutations and calculated positional weights data for sub-subregions generated from sequence partitioned starting at index 15.
-- `combined_data.csv`: Contains combined data from both sets of partitioned sub-subregions.
-- `region_details.csv`: Contains detailed information about regions, subregions, and sub-subregions.
-- `region_weights.csv`: Contains the range and weight for each region.
+- `positional_weights_0.csv`: Mapped mutations and calculated positional weights for sub-subregions partitioned starting at index 0.
+- `positional_weights_15.csv`: Mapped mutations and calculated positional weights for sub-subregions partitioned starting at index 15.
+- `combined_data.csv`: Combined data from both sets of partitioned sub-subregions.
+- `region_details.csv`: Detailed information about regions, subregions, and sub-subregions.
+- `region_weights.csv`: Range and weight for each region.
+
 
 ## Plots
 
 The following plots are generated and saved in the `ECMPIA_result` directory:
 
-1. **Density Plot for Positional Weights**
-   - Description: This plot shows the density of positional weights across different sub-subregions.
+1. **Density Plot of Positional Weights**
+   - Description: This plot shows the density of positional weights across sub-subregions partitioned starting at index 0, index 15, and the combined data.
    - ![](ECMPIA_result/density_plot_for_positional_weights.png)
 
-2. **Positional Weights by Mutation Positions**
-   - Description: This scatter plot displays the positional weights by mutation positions for sub-subregions starting at index 0, index 15, and the combined data.
+2. **Scatter Plot of Positional Weights by Mutation Positions**
+   - Description: This plot shows the positional weights by mutation positions for sub-subregions partitioned starting at index 0, index 15, and the combined data.
    - ![](ECMPIA_result/positional_weights_by_mutation_positions.png)
 
-3. **Positional Weights by Sub-subregion Ranges**
-   - Description: This plot shows the positional weights for sub-subregion ranges, with lines connecting the weights for sub-subregions starting at index 0, index 15, and the combined data.
+3. **Line Plot of Positional Weights by Sub-subregion Ranges**
+   - Description: This plot shows the positional weights for sub-subregion ranges, with lines connecting the weights for sub-subregions partitioned starting at index 0, index 15, and the combined data.
    - ![](ECMPIA_result/positional_weights_by_subsubregion_ranges.png)
 
-4. **Positional Weights of Regions, Subregions, Sub-subregions**
+4. **Bar Plot of Positional Weights Across Regions, Subregions, and Sub-subregions**
    - Description: This plot shows the positional weights across regions, subregions, and sub-subregions, with interval bars indicating the range and weight for each category.
    - ![](ECMPIA_result/positional_weights_of_regions_subregions_subsubregions.png)
+
 
 ## System Requirements
 

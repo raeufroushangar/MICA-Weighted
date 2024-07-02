@@ -179,7 +179,7 @@ def plot_density_for_positional_weights(positional_weights_0, positional_weights
         weights = []
         for subsubregion in positional_weights:
             if len(subsubregion) < 3 or not subsubregion[0] or len(subsubregion[0]) < 4:
-                continue  # Skip if the subsubregion does not have the expected format
+                continue  # Skip if the sub-subregion does not have the expected format
             start, end = subsubregion[0][2], subsubregion[0][3]
             weight = subsubregion[2]
             indices.extend(range(start, end + 1))
@@ -191,7 +191,7 @@ def plot_density_for_positional_weights(positional_weights_0, positional_weights
         weights = []
         for subsubregion in combined_data:
             if len(subsubregion) < 3:
-                continue  # Skip if the subsubregion does not have the expected format
+                continue  # Skip if the sub-subregion does not have the expected format
             start, end = subsubregion[0][0], subsubregion[0][1]
             weight = subsubregion[2]
             indices.extend(range(start, end + 1))

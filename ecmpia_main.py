@@ -8,7 +8,7 @@ from src.result_writer import write_processed_data, write_region_data_to_csv
 from src.data_bucketer import bucket_subsubregions_to_subregions, bucket_subregions_to_regions
 from src.plotter import generate_plots
 
-def run_ECMPIA_analysis(seq_length, plot=False):
+def run_ecmpia_analysis(seq_length, plot=False):
     """
     Run the ECMPIA analysis using the mutations_data.csv file in the current directory.
 
@@ -54,4 +54,4 @@ if __name__ == "__main__":
     parser.add_argument('--plot', action='store_true', help="Option to plot the data")
     args = parser.parse_args()
 
-    run_ECMPIA_analysis(args.length, args.plot)
+    run_ecmpia_analysis(args.length, args.plot)

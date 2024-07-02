@@ -9,9 +9,6 @@ def partition_seq_length(seq_length):
     Returns:
     - subsubregions_0 (list): List of sub-subregions starting from index 0.
     - subsubregions_15 (list): List of sub-subregions starting from index 15.
-
-    Raises:
-    - ValueError: If seq_length is not an integer or is less than 45.
     """
     
     if not isinstance(seq_length, int):
@@ -20,11 +17,11 @@ def partition_seq_length(seq_length):
     if seq_length < 45:
         raise ValueError(f"Error: Sequence length must be at least 45. You entered {seq_length}")
 
-    # Initialize lists to store subsubregions
+    # Initialize lists to store sub-subregions
     subsubregions_0 = []
     subsubregions_15 = []
 
-    # Process for subsubregions starting at index 0
+    # Process for sub-subregions starting at index 0
     remaining_seq_length = seq_length
     start_index = 0
     subsubregion_number = 1
@@ -38,7 +35,7 @@ def partition_seq_length(seq_length):
             start_index += 30
             subsubregion_number += 1
 
-    # Process for subsubregions starting at index 15
+    # Process for sub-subregions starting at index 15
     if seq_length <= 45:
         subsubregions_15.append([1, seq_length, 0, seq_length - 1])
     else:
@@ -54,6 +51,6 @@ def partition_seq_length(seq_length):
                 remaining_seq_length -= 30
                 start_index += 30
                 subsubregion_number += 1
-    # Return the partitioned subsubregions
+    # Return the partitioned sub-subregions
 
     return subsubregions_0, subsubregions_15

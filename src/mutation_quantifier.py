@@ -12,19 +12,19 @@ def quantify_significant_mutations(seq_length, mutations):
     - mutations (list of tuples): List of mutations, each represented as (position, mutation_data).
 
     Returns:
-    - tuple: Two lists containing subsubregions with their mutations and positional weights for subsubregions starting at index 0 and index 15.
+    - tuple: Two lists containing sub-subregions with their mutations and positional weights for sub-subregions starting at index 0 and index 15.
     """
-    # Partition the sequence into subsubregions starting at index 0 and index 15
+    # Partition the sequence into sub-subregions starting at index 0 and index 15
     subsubregions_0, subsubregions_15 = partition_seq_length(seq_length)
     
-    # Process subsubregions starting at index 0
+    # Process sub-subregions starting at index 0
     subsubregion_mutations_positional_weights_0 = []
     assigned_mutations_0 = assign_mutations(subsubregions_0, mutations)
     for subsubregion, subsubregion_mutations in assigned_mutations_0:
         positional_weight = calculate_subsubregion_weights(subsubregion, subsubregion_mutations)
         subsubregion_mutations_positional_weights_0.append((subsubregion, subsubregion_mutations, positional_weight))
 
-    # Process subsubregions starting at index 15
+    # Process sub-subregions starting at index 15
     subsubregion_mutations_positional_weights_15 = []
     assigned_mutations_15 = assign_mutations(subsubregions_15, mutations)
     for subsubregion, subsubregion_mutations in assigned_mutations_15:

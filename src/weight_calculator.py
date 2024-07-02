@@ -4,14 +4,14 @@ from src.normalizer import weighted_ave_normalization
 
 def calculate_subsubregion_weights(subsubregion, subsubregion_mutations):
     """
-    Calculate the weighted impact for a subsubregion based on mutations.
+    Calculate the weighted impact for a sub-subregion based on mutations.
 
     Args:
-    - subsubregion (list): A subsubregion represented as [subsubregion_number, length, start_index, end_index].
-    - subsubregion_mutations (list of tuples): Mutations within the subsubregion, each represented as (position, impact).
+    - subsubregion (list): A sub-subregion represented as [subsubregion_number, length, start_index, end_index].
+    - subsubregion_mutations (list of tuples): Mutations within the sub-subregion, each represented as (position, impact).
 
     Returns:
-    - float: The normalized weighted impact for the subsubregion.
+    - float: The normalized weighted impact for the sub-subregion.
     """
     total_positional_weighted_impact = 0
 
@@ -20,7 +20,7 @@ def calculate_subsubregion_weights(subsubregion, subsubregion_mutations):
         return 0
 
     for pos, impact in subsubregion_mutations:
-        # Calculate the distance from the mutation position to each position in the subsubregion
+        # Calculate the distance from the mutation position to each position in the sub-subregion
         distance = np.abs(np.arange(subsubregion[2], subsubregion[3] + 1) - pos)
         # Calculate positional weights based on the distance
         positional_weights = assign_positional_weight(distance)

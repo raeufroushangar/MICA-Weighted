@@ -4,10 +4,10 @@ from src.weight_calculator import calculate_subsubregion_weights
 
 def extract_boundaries(subsubregions):
     """
-    Extract unique boundaries from subsubregions.
+    Extract unique boundaries from sub-subregions.
 
     Args:
-    - subsubregions (list): List of subsubregions.
+    - subsubregions (list): List of sub-subregions.
 
     Returns:
     - list: Sorted list of unique boundaries.
@@ -37,13 +37,13 @@ def create_combined_intervals(sorted_boundaries):
 
 def map_subsubregions_to_intervals(subsubregions):
     """
-    Map subsubregions to intervals.
+    Map sub-subregions to intervals.
 
     Args:
-    - subsubregions (list): List of subsubregions.
+    - subsubregions (list): List of sub-subregions.
 
     Returns:
-    - dict: Dictionary mapping intervals to subsubregions.
+    - dict: Dictionary mapping intervals to sub-subregions.
     """
     interval_dict = defaultdict(list)
     for sub in subsubregions:
@@ -58,7 +58,7 @@ def calculate_overlap_and_combine(interval, interval_dict):
 
     Args:
     - interval (tuple): Interval represented as (start, end).
-    - interval_dict (dict): Dictionary mapping intervals to subsubregions.
+    - interval_dict (dict): Dictionary mapping intervals to sub-subregions.
 
     Returns:
     - tuple: Combined interval data including mutations and average weight.
@@ -94,14 +94,14 @@ def calculate_overlap_and_combine(interval, interval_dict):
 
 def combine_and_map_weights_and_mutations(subsubregions1, subsubregions2):
     """
-    Combine and map weights and mutations for two sets of subsubregions.
+    Combine and map weights and mutations for two sets of sub-subregions.
 
     Args:
-    - subsubregions1 (list): First list of subsubregions.
-    - subsubregions2 (list): Second list of subsubregions.
+    - subsubregions1 (list): First list of sub-subregions.
+    - subsubregions2 (list): Second list of sub-subregions.
 
     Returns:
-    - list: Combined and mapped data for the subsubregions.
+    - list: Combined and mapped data for the sub-subregions.
     """
     # Extract and sort boundaries
     boundaries1 = extract_boundaries(subsubregions1)

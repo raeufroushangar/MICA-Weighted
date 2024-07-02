@@ -3,19 +3,18 @@ from src.mutation_quantifier import quantify_significant_mutations
 from src.subsubregion_combiner import combine_and_map_weights_and_mutations
 from src.weight_calculator import calculate_region_weights, calculate_subregion_weights
 
-
 def process_mutation_data(mutation_file_path, seq_length):
     """
-    Process mutation data and return positional weights and combined data.
+    Process mutation data and return partitioned (starting at index 0 and index 15) and combined data.
 
     Args:
     - mutation_file_path (str): Path to the input mutation data file.
-    - seq_length (int): Length of the DNA sequence.
+    - seq_length (int): Length of the sequence.
 
     Returns:
     - tuple: (positional_weights_0_data, positional_weights_15_data, combined_data)
     """
-    # Read mutation data
+    # Read mutation data file
     mutations = read_mutation_data(mutation_file_path)
 
     if isinstance(mutations, list):
@@ -38,10 +37,9 @@ def process_mutation_data(mutation_file_path, seq_length):
     else:
         raise ValueError(mutations)
 
-
 def process_region_details(regions):
     """
-    Extract details for each region, including weights and subregion information.
+    Extract details for each region, subregion, and sub-subregion.
 
     Args:
     - regions (list): List of regions, where each region is a list of subregions.
@@ -82,5 +80,3 @@ def process_region_details(regions):
         region_details.append(region_detail)
     
     return region_details
-
-
