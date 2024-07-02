@@ -1,10 +1,10 @@
 # CEMPI (Contextual Encoding of Mutations Positional Impact)
 
-CEMPI is a repository for implementing a set of algorithms related to the contextual encoding of mutations and their positional impact in a sequence.
+CEMPI is a repository for implementing a set of algorithms that perfomr contextual encoding of mutations and their positional impact in a sequence.
 
 ## Project Description
 
-CEMPI integrates partitioning and clustering algorithms to capture mutation positions (bases and regions) and their impact across DNA/RNA/protein sequences. The repository serves as a toolkit for bioinformaticians and researchers.
+CEMPI algorithm integrates partitioning and clustering methods to capture mutation positions (bases and regions) and their impact across DNA/RNA/protein sequences. The repository serves as a toolkit for bioinformaticians and researchers.
 
 ## Directory Structure
 
