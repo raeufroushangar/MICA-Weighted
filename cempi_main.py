@@ -1,3 +1,6 @@
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning, message="Unable to import Axes3D")
+
 import os
 import argparse
 import numpy as np
@@ -5,17 +8,20 @@ import pandas as pd
 from src.data_processor import process_mutation_data, process_region_details
 from src.result_writer import write_processed_data, write_region_data_to_csv
 from src.data_bucketer import bucket_subsubregions_to_subregions, bucket_subregions_to_regions
+from src.plotter import generate_plots
 
-def run_cempi_analysis(seq_length):
+def run_cempi_analysis(seq_length, plot=False):
     """
     Run the CEMPI analysis using the mutations_data.csv file in the current directory.
 
     Args:
     - seq_length (int): Length of the DNA sequence.
+    - plot (bool): Whether to plot the data or not.
     """
     # Define the path to the mutations_data.csv file
     current_dir = os.path.dirname(os.path.abspath(__file__))
     mutation_file_path = os.path.join(current_dir, 'mutations_data.csv')
+    result_dir = os.path.join(current_dir, "CEMPI_result")
 
     try:
         # Process mutation data
@@ -37,12 +43,17 @@ def run_cempi_analysis(seq_length):
             # Write region details and region weights to CSV
             write_region_data_to_csv(region_details, mutation_file_path)
 
+            # Generate and save plots if the plot argument is True
+            if plot:
+                generate_plots(positional_weights_0_data, positional_weights_15_data, combined_data_csv, result_dir)
+
     except ValueError as e:
         print(e)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run CEMPI analysis on mutation data.")
     parser.add_argument('-l', '--length', type=int, required=True, help="Length of the DNA sequence")
+    parser.add_argument('--plot', action='store_true', help="Option to plot the data")
     args = parser.parse_args()
 
-    run_cempi_analysis(args.length)
+    run_cempi_analysis(args.length, args.plot)

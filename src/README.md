@@ -53,3 +53,11 @@ In this project, the sequence is partitioned into two sets of sub-subregions: on
   - Contains the following functions:
     - `bucket_subsubregions_to_subregions`: Groups sub-subregions into subregions.
     - `bucket_subregions_to_regions`: Groups subregions into regions.
+
+- **plotter.py**
+  - Contains functions for generating and saving plots:
+    - `plot_positional_weights_by_mutation_positions`: Generates a scatter plot of positional weights by mutation positions.
+    - `plot_positional_weights_by_subsubregion_ranges`: Generates a scatter plot of positional weights by sub-subregion ranges.
+    - `plot_density_for_positional_weights`: Generates a density plot for positional weights.
+    - `plot_positional_weights`: Generates a plot of positional weights for regions, subregions, and sub-subregions.
+    - `generate_plots`: Generates and saves all plots to the specified output directory.

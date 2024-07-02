@@ -4,7 +4,7 @@ CEMPI is a repository for implementing a set of algorithms that perform contextu
 
 ## Project Description
 
-CEMPI algorithm integrates partitioning and clustering methods to capture mutation positions (bases and regions) and their impact across DNA/RNA/protein sequence. The repository serves as a toolkit for bioinformaticians and researchers.
+CEMPI algorithm integrates partitioning and clustering methods to capture mutation positions (bases and regions) and their impact across DNA/RNA/protein sequences. The repository serves as a toolkit for bioinformaticians and researchers.
 
 ## Directory Structure
 
@@ -27,6 +27,10 @@ This directory contains the output results from the algorithm. The following fil
 - `combined_data.csv`: Contains combined data from both sets of partitioned sub-subregions.
 - `region_details.csv`: Contains detailed information about regions, subregions, and sub-subregions.
 - `region_weights.csv`: Contains the range and weight for each region.
+- `positional_weights_by_mutation_positions.png`: Scatter plot of positional weights by mutation positions.
+- `positional_weights_by_subsubregion_ranges.png`: Scatter plot of positional weights by sub-subregion ranges.
+- `density_plot_for_positional_weights.png`: Density plot for positional weights.
+- `positional_weights_of_regions_subregions_subsubregions.png`: Plot of positional weights for regions, subregions, and sub-subregions.
 
 ## System Requirements
 
@@ -48,7 +52,16 @@ This directory contains the output results from the algorithm. The following fil
 
 3. Run analysis script:
    ```bash
-   python3 cempi_main.py -l <sequence_length>
+   python3 cempi_main.py -l <sequence_length> [--plot]
 
-   note: Replace <sequence_length> with the length of your DNA sequence. For example:
-   python3 cempi_main.py -l 30000
+   Replace <sequence_length> with the length of your sequence. 
+   For example: python3 cempi_main.py -l 30000
+
+   To generate plots, include the --plot flag:
+   python3 cempi_main.py -l 30000 --plot
+
+
+   For help and additional options, use the -h or --help flag:
+   python3 cempi_main.py -h
+
+
