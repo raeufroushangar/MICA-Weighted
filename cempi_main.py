@@ -3,8 +3,6 @@ warnings.filterwarnings("ignore", category=UserWarning, message="Unable to impor
 
 import os
 import argparse
-import numpy as np
-import pandas as pd
 from src.data_processor import process_mutation_data, process_region_details
 from src.result_writer import write_processed_data, write_region_data_to_csv
 from src.data_bucketer import bucket_subsubregions_to_subregions, bucket_subregions_to_regions
@@ -21,7 +19,6 @@ def run_cempi_analysis(seq_length, plot=False):
     # Define the path to the mutations_data.csv file
     current_dir = os.path.dirname(os.path.abspath(__file__))
     mutation_file_path = os.path.join(current_dir, 'mutations_data.csv')
-    result_dir = os.path.join(current_dir, "CEMPI_result")
 
     try:
         # Process mutation data
@@ -45,7 +42,8 @@ def run_cempi_analysis(seq_length, plot=False):
 
             # Generate and save plots if the plot argument is True
             if plot:
-                generate_plots(positional_weights_0_data, positional_weights_15_data, combined_data_csv, result_dir)
+                result_dir = os.path.join(current_dir, "CEMPI_result")
+                generate_plots(positional_weights_0_data, positional_weights_15_data, combined_data_csv, region_details, result_dir)
 
     except ValueError as e:
         print(e)

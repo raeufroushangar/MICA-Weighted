@@ -4,7 +4,7 @@ CEMPI is a repository for implementing a set of algorithms that perform contextu
 
 ## Project Description
 
-CEMPI algorithm integrates partitioning and clustering methods to capture mutation positions (bases and regions) and their impact across DNA/RNA/protein sequences. The repository serves as a toolkit for bioinformaticians and researchers.
+CEMPI algorithm integrates partitioning and clustering methods to capture mutation positions (bases and regions) and their impact across DNA/RNA/protein sequence. The repository serves as a toolkit for bioinformaticians and researchers.
 
 ## Directory Structure
 
@@ -27,10 +27,26 @@ This directory contains the output results from the algorithm. The following fil
 - `combined_data.csv`: Contains combined data from both sets of partitioned sub-subregions.
 - `region_details.csv`: Contains detailed information about regions, subregions, and sub-subregions.
 - `region_weights.csv`: Contains the range and weight for each region.
-- `positional_weights_by_mutation_positions.png`: Scatter plot of positional weights by mutation positions.
-- `positional_weights_by_subsubregion_ranges.png`: Scatter plot of positional weights by sub-subregion ranges.
-- `density_plot_for_positional_weights.png`: Density plot for positional weights.
-- `positional_weights_of_regions_subregions_subsubregions.png`: Plot of positional weights for regions, subregions, and sub-subregions.
+
+## Plots
+
+The following plots are generated and saved in the `CEMPI_result` directory:
+
+1. **Density Plot for Positional Weights**
+   - Path: `CEMPI_result/density_plot_for_positional_weights.png`
+   - Description: This plot shows the density of positional weights across different sub-subregions.
+
+2. **Positional Weights by Mutation Positions**
+   - Path: `CEMPI_result/positional_weights_by_mutation_positions.png`
+   - Description: This scatter plot displays the positional weights by mutation positions for sub-subregions starting at index 0, index 15, and the combined data.
+
+3. **Positional Weights by Sub-subregion Ranges**
+   - Path: `CEMPI_result/positional_weights_by_subsubregion_ranges.png`
+   - Description: This plot shows the positional weights for sub-subregion ranges, with lines connecting the weights for sub-subregions starting at index 0, index 15, and the combined data.
+
+4. **Positional Weights of Regions, Subregions, Sub-subregions**
+   - Path: `CEMPI_result/positional_weights_of_regions_subregions_subsubregions.png`
+   - Description: This plot shows the positional weights across regions, subregions, and sub-subregions, with interval bars indicating the range and weight for each category.
 
 ## System Requirements
 
@@ -52,16 +68,11 @@ This directory contains the output results from the algorithm. The following fil
 
 3. Run analysis script:
    ```bash
-   python3 cempi_main.py -l <sequence_length> [--plot]
+   python3 cempi_main.py -l <sequence_length> --plot
 
-   Replace <sequence_length> with the length of your sequence. 
-   For example: python3 cempi_main.py -l 30000
-
-   To generate plots, include the --plot flag:
+   note: Replace <sequence_length> with the length of your DNA sequence. For example:
    python3 cempi_main.py -l 30000 --plot
 
-
-   For help and additional options, use the -h or --help flag:
+4. To see the help message for the script:
+   ```bash
    python3 cempi_main.py -h
-
-

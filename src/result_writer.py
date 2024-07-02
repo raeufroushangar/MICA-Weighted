@@ -3,21 +3,21 @@ import pandas as pd
 
 def write_results_to_csv(file_path, data, headers):
     """
-    Write data to a CSV file, creating the directory if it doesn't exist.
+    Write data to a CSV file, creating a new directory each time.
 
     Args:
     - file_path (str): Path to the output file.
     - data (list): List of data to write.
     - headers (list): List of headers for the CSV file.
     """
-    # Create directory if it doesn't exist
+    # Create directory, assuming it does not exist
     directory = os.path.dirname(file_path)
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+    os.makedirs(directory, exist_ok=True)
 
     # Write data to CSV
     df = pd.DataFrame(data, columns=headers)
     df.to_csv(file_path, index=False)
+
 
 def write_processed_data(mutation_file_path, positional_weights_0_data, positional_weights_15_data, combined_data_csv):
     """
