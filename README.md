@@ -71,7 +71,10 @@ The following plots are generated and saved in the `CEMPI_result` directory:
    ```bash
    python3 cempi_main.py -l <sequence_length> --plot
 
-   note: Replace <sequence_length> with the length of your DNA sequence. For example:
+   note: Replace <sequence_length> with the length of your sequence. For example:
+   python3 cempi_main.py -l 30000 
+
+   To generate plots, include the --plot flag:
    python3 cempi_main.py -l 30000 --plot
 
 4. To see the help message for the script:
