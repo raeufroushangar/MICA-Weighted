@@ -71,12 +71,12 @@ def write_region_data_to_csv(region_details, mutation_file_path):
             subregion_weight = subregion_detail['subregion_weight']
 
             for subsubregion in subregion_detail['subsubregions']:
-                start_index, end_index = subsubregion[0]
+                subsubregion_range = tuple(subsubregion[0])
                 subsubregion_weight = subsubregion[2]
                 region_details_data.append([
                     region_number, region_range, region_weight,
                     subregion_number, subregion_range, subregion_weight,
-                    start_index, end_index, subsubregion_weight
+                    subsubregion_range, subsubregion_weight
                 ])
     
     # Write region details to CSV
@@ -87,7 +87,8 @@ def write_region_data_to_csv(region_details, mutation_file_path):
         'Subregion Number', 
         'Subregion Range', 
         'Subregion Weight',
-        'Start Index', 'End Index', 'Subsubregion Weight'
+        'Subsubregion Range', 
+        'Subsubregion Weight'
     ])
 
     # Prepare the data for region weights
