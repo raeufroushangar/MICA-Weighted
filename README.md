@@ -1,6 +1,6 @@
 # CEMPI (Contextual Encoding of Mutations Positional Impact)
 
-CEMPI is a repository for implementing a set of algorithms that perfomr contextual encoding of mutations and their positional impact in a sequence.
+CEMPI is a repository for implementing a set of algorithms that perform contextual encoding of mutations and their positional impact in a sequence.
 
 ## Project Description
 
@@ -25,6 +25,8 @@ This directory contains the output results from the algorithm. The following fil
 - `positional_weights_0.csv`: Contains mapped mutations and calculated positional weights data for sub-subregions generated from sequence partitioned starting at index 0.
 - `positional_weights_15.csv`: Contains mapped mutations and calculated positional weights data for sub-subregions generated from sequence partitioned starting at index 15.
 - `combined_data.csv`: Contains combined data from both sets of sub-subregions partitioned.
+- `region_details.csv`: Contains detailed information about regions, including subregion details and weights.
+- `region_weights.csv`: Contains the overall weights for each region.
 
 ## System Requirements
 
