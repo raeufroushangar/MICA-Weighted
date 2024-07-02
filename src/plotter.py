@@ -209,7 +209,7 @@ def plot_density_for_positional_weights(positional_weights_0, positional_weights
     data_combined = pd.DataFrame({'Index': indices_combined, 'Weight': weights_combined, 'Type': 'Combined'})
 
     # Plot the data
-    plt.figure(figsize=(15, 8))
+    plt.figure(figsize=(20, 10))
 
     # KDE plot with less dense colors (more transparent)
     sns.kdeplot(data=data_0, x='Index', weights='Weight', fill=True, color='blue', label='Start Index 0', alpha=0.2)
