@@ -41,12 +41,13 @@ The following plots are generated and saved in the `CEMPI_result` directory:
    - ![](CEMPI_result/positional_weights_by_mutation_positions.png)
 
 3. **Positional Weights by Sub-subregion Ranges**
-   - Path: `CEMPI_result/positional_weights_by_subsubregion_ranges.png`
    - Description: This plot shows the positional weights for sub-subregion ranges, with lines connecting the weights for sub-subregions starting at index 0, index 15, and the combined data.
+   - ![](CEMPI_result/positional_weights_by_subsubregion_ranges.png)
+
 
 4. **Positional Weights of Regions, Subregions, Sub-subregions**
-   - Path: `CEMPI_result/positional_weights_of_regions_subregions_subsubregions.png`
    - Description: This plot shows the positional weights across regions, subregions, and sub-subregions, with interval bars indicating the range and weight for each category.
+   - ![](CEMPI_result/positional_weights_of_regions_subregions_subsubregions.png)
 
 ## System Requirements
 
