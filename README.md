@@ -24,8 +24,8 @@ You should replace the data in this file with your own mutation data before runn
 This directory contains the output results from the algorithm. The following files are generated:
 - `positional_weights_0.csv`: Contains mapped mutations and calculated positional weights data for sub-subregions generated from sequence partitioned starting at index 0.
 - `positional_weights_15.csv`: Contains mapped mutations and calculated positional weights data for sub-subregions generated from sequence partitioned starting at index 15.
-- `combined_data.csv`: Contains combined data from both sets of sub-subregions partitioned.
-- `region_details.csv`: Contains detailed information about regions, subregion, and sub-subregions.
+- `combined_data.csv`: Contains combined data from both sets of partitioned sub-subregions.
+- `region_details.csv`: Contains detailed information about regions, subregions, and sub-subregions.
 - `region_weights.csv`: Contains the range and weight for each region.
 
 ## System Requirements
