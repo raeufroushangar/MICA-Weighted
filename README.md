@@ -1,6 +1,6 @@
 # ECMPIA: Encoding and Clustering Mutations Positional Impact Algorithm
 
-ECMPIA algorithm integrates partitioning and clustering methods to capture and analyze the positional impact of mutations (bases and regions) across DNA/RNA/protein sequences. It helps bioinformaticians and researchers identify significant mutation hotspots and their impact on sequences.
+The ECMPIA algorithm integrates partitioning and clustering methods to capture and analyze the positional impact of mutations (bases and regions) across DNA/RNA/protein sequences. It is designed to identify highly mutated bases and regions, assess their impact based on their positions, and uncover the relationships between mutations in terms of positional impact. This helps bioinformaticians and researchers understand significant mutation hotspots and their effects on sequences.
 
 ## Project Description
 
