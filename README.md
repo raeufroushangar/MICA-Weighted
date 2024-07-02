@@ -4,7 +4,7 @@ The ECMPIA algorithm integrates partitioning and clustering methods to capture a
 
 ## Project Description
 
-The ECMPIA repository serves as a toolkit for bioinformaticians and researchers to implement the ECMPIA algorithm for analyzing mutation impacts.
+The ECMPIA repository serves as a toolkit for researchers to implement the ECMPIA algorithm for analyzing mutation positional impacts.
 
 ## Directory Structure
 
