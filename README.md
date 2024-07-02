@@ -4,7 +4,7 @@ CEMPI is a repository for implementing a set of algorithms related to the contex
 
 ## Project Description
 
-CEMPI integrates partitioning and clustering algorithms to capture mutation positions (bases and regions) and their impact across DNA/RNA/protein sequence. The repository serves as a toolkit for bioinformaticians and researchers.
+CEMPI integrates partitioning and clustering algorithms to capture mutation positions (bases and regions) and their impact across DNA/RNA/protein sequences. The repository serves as a toolkit for bioinformaticians and researchers.
 
 ## Directory Structure
 
@@ -18,6 +18,13 @@ This file contains sample mutation data with the following columns:
 - `impact_score` (float or integer): Impact score of the mutations.
 
 You should replace the data in this file with your own mutation data before running the analysis.
+
+## CEMPI_result
+
+This directory contains the output results from the algorithm. The following files are generated:
+- `positional_weights_0.csv`: Contains mapped mutations and calculated positional weights data for sub-subregions generated from sequence partitioned starting at index 0.
+- `positional_weights_15.csv`: Contains mapped mutations and calculated positional weights data for sub-subregions generated from sequence partitioned starting at index 15.
+- `combined_data.csv`: Contains combined data from both sets of sub-subregions partitioned.
 
 ## System Requirements
 
