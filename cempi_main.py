@@ -1,7 +1,10 @@
 import os
 import argparse
-from src.data_processor import process_mutation_data
-from src.result_writer import write_processed_data
+import numpy as np
+import pandas as pd
+from src.data_processor import process_mutation_data, process_region_details
+from src.result_writer import write_processed_data, write_region_data_to_csv
+from src.data_bucketer import bucket_subsubregions_to_subregions, bucket_subregions_to_regions
 
 def run_cempi_analysis(seq_length):
     """
@@ -21,6 +24,19 @@ def run_cempi_analysis(seq_length):
         # Write processed data to CSV files if processing was successful
         if positional_weights_0_data is not None and positional_weights_15_data is not None and combined_data_csv is not None:
             write_processed_data(mutation_file_path, positional_weights_0_data, positional_weights_15_data, combined_data_csv)
+            
+            # Call the bucket_subsubregions_to_subregions function
+            subregions = bucket_subsubregions_to_subregions(combined_data_csv)
+
+            # Call the bucket_subregions_to_regions function
+            regions = bucket_subregions_to_regions(subregions)
+            
+            # Process region details
+            region_details = process_region_details(regions)
+
+            # Write region details and region weights to CSV
+            write_region_data_to_csv(region_details, mutation_file_path)
+
     except ValueError as e:
         print(e)
 

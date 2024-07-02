@@ -42,3 +42,61 @@ def write_processed_data(mutation_file_path, positional_weights_0_data, position
     write_results_to_csv(positional_weights_0_file, positional_weights_0_data, ['Sub-subregion', 'Mutations', 'Positional Weight'])
     write_results_to_csv(positional_weights_15_file, positional_weights_15_data, ['Sub-subregion', 'Mutations', 'Positional Weight'])
     write_results_to_csv(combined_data_file, combined_data_csv, ['Interval', 'Mutations', 'Average Weight'])
+
+def write_region_data_to_csv(region_details, mutation_file_path):
+    """
+    Write region details and region weights to CSV files in the CEMPI_result directory.
+
+    Args:
+    - region_details (list): List of region details to write.
+    - mutation_file_path (str): Path to the input mutation data file.
+    """
+    # Derive the output directory from the mutation file path
+    base_dir = os.path.dirname(mutation_file_path)
+    result_dir = os.path.join(base_dir, "CEMPI_result")
+    
+    # Define file paths for region details and region weights
+    region_details_file = os.path.join(result_dir, "region_details.csv")
+    region_weights_file = os.path.join(result_dir, "region_weights.csv")
+
+    # Prepare the data for region details
+    region_details_data = []
+    for detail in region_details:
+        region_number = detail['region_number']
+        region_range = detail['region_range']
+        region_weight = detail['region_weight']
+        for subregion_detail in detail['subregions']:
+            subregion_number = subregion_detail['subregion_number']
+            subregion_range = subregion_detail['subregion_range']
+            subregion_weight = subregion_detail['subregion_weight']
+
+            for subsubregion in subregion_detail['subsubregions']:
+                start_index, end_index = subsubregion[0]
+                subsubregion_weight = subsubregion[2]
+                region_details_data.append([
+                    region_number, region_range, region_weight,
+                    subregion_number, subregion_range, subregion_weight,
+                    start_index, end_index, subsubregion_weight
+                ])
+    
+    # Write region details to CSV
+    write_results_to_csv(region_details_file, region_details_data, [
+        'Region Number', 
+        'Region Range', 
+        'Region Weight',
+        'Subregion Number', 
+        'Subregion Range', 
+        'Subregion Weight',
+        'Start Index', 'End Index', 'Subsubregion Weight'
+    ])
+
+    # Prepare the data for region weights
+    region_weights_data = [
+        [detail['region_number'], detail['region_range'], detail['region_weight']]
+        for detail in region_details
+    ]
+    
+    # Write region weights to CSV
+    write_results_to_csv(region_weights_file, region_weights_data, [
+        'Region Number', 'Region Range', 'Region Weight'
+    ])
