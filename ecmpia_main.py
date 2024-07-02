@@ -8,9 +8,9 @@ from src.result_writer import write_processed_data, write_region_data_to_csv
 from src.data_bucketer import bucket_subsubregions_to_subregions, bucket_subregions_to_regions
 from src.plotter import generate_plots
 
-def run_cempi_analysis(seq_length, plot=False):
+def run_ECMPIA_analysis(seq_length, plot=False):
     """
-    Run the CEMPI analysis using the mutations_data.csv file in the current directory.
+    Run the ECMPIA analysis using the mutations_data.csv file in the current directory.
 
     Args:
     - seq_length (int): Length of the DNA sequence.
@@ -42,16 +42,16 @@ def run_cempi_analysis(seq_length, plot=False):
 
             # Generate and save plots if the plot argument is True
             if plot:
-                result_dir = os.path.join(current_dir, "CEMPI_result")
+                result_dir = os.path.join(current_dir, "ECMPIA_result")
                 generate_plots(positional_weights_0_data, positional_weights_15_data, combined_data_csv, region_details, result_dir)
 
     except ValueError as e:
         print(e)
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Run CEMPI analysis on mutation data.")
+    parser = argparse.ArgumentParser(description="Run ECMPIA analysis on mutation data.")
     parser.add_argument('-l', '--length', type=int, required=True, help="Length of the DNA sequence")
     parser.add_argument('--plot', action='store_true', help="Option to plot the data")
     args = parser.parse_args()
 
-    run_cempi_analysis(args.length, args.plot)
+    run_ECMPIA_analysis(args.length, args.plot)

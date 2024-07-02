@@ -1,10 +1,10 @@
-# CEMPI: Contextual Encoding of Mutations Positional Impact
+# ECMPIA: Encoding and Clustering Mutations Positional Impact Algorithm
 
-CEMPI is a repository for implementing a set of algorithms that perform contextual encoding of mutations and their positional impact in a sequence.
+ECMPIA integrates partitioning and clustering methods to capture and analyze the positional impact of mutations (bases and regions) across DNA/RNA/protein sequences. It helps bioinformaticians and researchers identify significant mutation hotspots and their impact on sequences.
 
 ## Project Description
 
-CEMPI algorithm integrates partitioning and clustering methods to capture mutation positions (bases and regions) and their impact across DNA/RNA/protein sequence. The repository serves as a toolkit for bioinformaticians and researchers.
+The ECMPIA repository serves as a toolkit for bioinformaticians and researchers to implement the ECMPIA algorithm for analyzing mutation impacts.
 
 ## Directory Structure
 
@@ -19,7 +19,7 @@ This file contains sample mutation data with the following columns:
 
 You should replace the data in this file with your own mutation data before running the analysis.
 
-## CEMPI_result
+## ECMPIA_result
 
 This directory contains the output results from the algorithm. The following files are generated:
 - `positional_weights_0.csv`: Contains mapped mutations and calculated positional weights data for sub-subregions generated from sequence partitioned starting at index 0.
@@ -30,24 +30,23 @@ This directory contains the output results from the algorithm. The following fil
 
 ## Plots
 
-The following plots are generated and saved in the `CEMPI_result` directory:
+The following plots are generated and saved in the `ECMPIA_result` directory:
 
 1. **Density Plot for Positional Weights**
    - Description: This plot shows the density of positional weights across different sub-subregions.
-   - ![](CEMPI_result/density_plot_for_positional_weights.png)
+   - ![](ECMPIA_result/density_plot_for_positional_weights.png)
 
 2. **Positional Weights by Mutation Positions**
    - Description: This scatter plot displays the positional weights by mutation positions for sub-subregions starting at index 0, index 15, and the combined data.
-   - ![](CEMPI_result/positional_weights_by_mutation_positions.png)
+   - ![](ECMPIA_result/positional_weights_by_mutation_positions.png)
 
 3. **Positional Weights by Sub-subregion Ranges**
    - Description: This plot shows the positional weights for sub-subregion ranges, with lines connecting the weights for sub-subregions starting at index 0, index 15, and the combined data.
-   - ![](CEMPI_result/positional_weights_by_subsubregion_ranges.png)
-
+   - ![](ECMPIA_result/positional_weights_by_subsubregion_ranges.png)
 
 4. **Positional Weights of Regions, Subregions, Sub-subregions**
    - Description: This plot shows the positional weights across regions, subregions, and sub-subregions, with interval bars indicating the range and weight for each category.
-   - ![](CEMPI_result/positional_weights_of_regions_subregions_subsubregions.png)
+   - ![](ECMPIA_result/positional_weights_of_regions_subregions_subsubregions.png)
 
 ## System Requirements
 
@@ -60,8 +59,8 @@ The following plots are generated and saved in the `CEMPI_result` directory:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/raeufroushangar/CEMPI.git
-   cd CEMPI
+   git clone https://github.com/raeufroushangar/ECMPIA.git
+   cd ECMPIA
 
 2. Install required packages:
    ```bash
@@ -69,14 +68,14 @@ The following plots are generated and saved in the `CEMPI_result` directory:
 
 3. Run analysis script:
    ```bash
-   python3 cempi_main.py -l <sequence_length> --plot
+   python3 ecmpia_main.py -l <sequence_length> --plot
 
    note: Replace <sequence_length> with the length of your sequence. For example:
-   python3 cempi_main.py -l 30000 
+   python3 ecmpia_main.py -l 30000 
 
    To generate plots, include the --plot flag:
-   python3 cempi_main.py -l 30000 --plot
+   python3 ecmpia_main.py -l 30000 --plot
 
 4. To see the help message for the script:
    ```bash
-   python3 cempi_main.py -h
+   python3 ecmpia_main.py -h

@@ -21,7 +21,7 @@ def write_results_to_csv(file_path, data, headers):
 
 def write_processed_data(mutation_file_path, positional_weights_0_data, positional_weights_15_data, combined_data_csv):
     """
-    Write processed data to CSV files in the CEMPI_result directory.
+    Write processed data to CSV files in the ECMPIA_result directory.
 
     Args:
     - mutation_file_path (str): Path to the input mutation data file.
@@ -31,7 +31,7 @@ def write_processed_data(mutation_file_path, positional_weights_0_data, position
     """
     # Derive the output directory from the mutation file path
     base_dir = os.path.dirname(mutation_file_path)
-    result_dir = os.path.join(base_dir, "CEMPI_result")
+    result_dir = os.path.join(base_dir, "ECMPIA_result")
     
     # Define file paths
     positional_weights_0_file = os.path.join(result_dir, "positional_weights_0.csv")
@@ -45,7 +45,7 @@ def write_processed_data(mutation_file_path, positional_weights_0_data, position
 
 def write_region_data_to_csv(region_details, mutation_file_path):
     """
-    Write region details and region weights to CSV files in the CEMPI_result directory.
+    Write region details and region weights to CSV files in the ECMPIA_result directory.
 
     Args:
     - region_details (list): List of region details to write.
@@ -53,7 +53,7 @@ def write_region_data_to_csv(region_details, mutation_file_path):
     """
     # Derive the output directory from the mutation file path
     base_dir = os.path.dirname(mutation_file_path)
-    result_dir = os.path.join(base_dir, "CEMPI_result")
+    result_dir = os.path.join(base_dir, "ECMPIA_result")
     
     # Define file paths for region details and region weights
     region_details_file = os.path.join(result_dir, "region_details.csv")
