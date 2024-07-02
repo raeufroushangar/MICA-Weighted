@@ -51,4 +51,4 @@ This directory contains the output results from the algorithm. The following fil
    python3 cempi_main.py -l <sequence_length>
 
    note: Replace <sequence_length> with the length of your DNA sequence. For example:
-   python3 cempi_main.py -l 100
+   python3 cempi_main.py -l 30000
