@@ -24,8 +24,8 @@ def plot_region_heatmap(file_path, result_dir):
     clustermap = sns.clustermap(distance_df, col_linkage=linkage_matrix, row_cluster=False, cmap='coolwarm', annot=True, figsize=(14, 10), annot_kws={"size": 8}, cbar_kws={"shrink": 0.5, "ticks": [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]})
 
     # Add axis titles
-    clustermap.ax_heatmap.set_xlabel('Region')
-    clustermap.ax_heatmap.set_ylabel('Region')
+    clustermap.ax_heatmap.set_xlabel('Regions')
+    clustermap.ax_heatmap.set_ylabel('Regions')
 
     # Move the row labels to the left and rotate them by 90 degrees
     clustermap.ax_heatmap.yaxis.tick_left()
@@ -65,8 +65,8 @@ def plot_subregion_heatmap(file_path, result_dir):
     clustermap = sns.clustermap(distance_df, col_linkage=linkage_matrix, row_cluster=False, cmap='coolwarm', annot=True, figsize=(14, 10), annot_kws={"size": 8}, cbar_kws={"shrink": 0.5, "ticks": [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]})
 
     # Add axis titles
-    clustermap.ax_heatmap.set_xlabel('Region-Subregion')
-    clustermap.ax_heatmap.set_ylabel('Region-Subregion')
+    clustermap.ax_heatmap.set_xlabel('Regions-Subregions')
+    clustermap.ax_heatmap.set_ylabel('Regions-Subregions')
 
     # Move the row labels to the left and rotate them by 0 degrees
     clustermap.ax_heatmap.yaxis.tick_left()
@@ -108,8 +108,8 @@ def plot_subsubregion_heatmap(file_path, result_dir):
     clustermap = sns.clustermap(distance_df, col_linkage=linkage_matrix, row_cluster=False, cmap='coolwarm', annot=True, figsize=(14, 10), annot_kws={"size": 8}, cbar_kws={"shrink": 0.5, "ticks": [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]})
 
     # Add axis titles
-    clustermap.ax_heatmap.set_xlabel('Region-Subregion-Subsubregion')
-    clustermap.ax_heatmap.set_ylabel('Region-Subregion-Subsubregion')
+    clustermap.ax_heatmap.set_xlabel('Regions-Subregions-Subsubregions')
+    clustermap.ax_heatmap.set_ylabel('Regions-Subregions-Subsubregions')
 
     # Move the row labels to the left and rotate them by 0 degrees
     clustermap.ax_heatmap.yaxis.tick_left()
