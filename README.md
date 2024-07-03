@@ -32,7 +32,7 @@ This directory contains the output results from the algorithm. The following fil
 
 ## Plots
 
-The following plots are generated and saved in the `ECMPIA_result` directory:
+### Density and Scatter Plots
 
 1. **Density Plot of Positional Weights**
    - Description: This plot shows the density of positional weights across sub-subregions partitioned starting at index 0, index 15, and the combined data.
@@ -49,6 +49,20 @@ The following plots are generated and saved in the `ECMPIA_result` directory:
 4. **Bar Plot of Positional Weights Across Regions, Subregions, and Sub-subregions**
    - Description: This plot shows the positional weights across regions, subregions, and sub-subregions, with interval bars indicating the range and weight for each category.
    - ![](ECMPIA_result/positional_weights_of_regions_subregions_subsubregions.png)
+
+### Correlation Heatmaps
+
+1. **Correlation Heatmap with Dendrogram Clustering on Regions**
+   - Description: This heatmap shows the correlation between regions based on their positional weights, with dendrogram clustering on the columns.
+   - ![](ECMPIA_result/region_correlation_heatmap.png)
+
+2. **Subregions Correlation Heatmap**
+   - Description: This heatmap shows the correlation between subregions, based on their positional weights, with dendrogram clustering on the columns.
+   - ![](ECMPIA_result/subregion_correlation_heatmap.png)
+
+3. **Subsubregions Correlation Heatmap**
+   - Description: This heatmap shows the correlation between subsubregions, based on their positional weights, with dendrogram clustering on the columns.
+   - ![](ECMPIA_result/subsubregion_correlation_heatmap.png)
 
 
 ## System Requirements

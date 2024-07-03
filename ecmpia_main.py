@@ -7,6 +7,7 @@ from src.data_processor import process_mutation_data, process_region_details
 from src.result_writer import write_processed_data, write_region_data_to_csv
 from src.data_bucketer import bucket_subsubregions_to_subregions, bucket_subregions_to_regions
 from src.plotter import generate_plots
+from src.heatmap_plotter import plot_region_heatmap, plot_subregion_heatmap, plot_subsubregion_heatmap
 
 def run_ecmpia_analysis(seq_length, plot=False):
     """
@@ -26,6 +27,9 @@ def run_ecmpia_analysis(seq_length, plot=False):
     # Define the path to the mutations_data.csv file
     current_dir = os.path.dirname(os.path.abspath(__file__))
     mutation_file_path = os.path.join(current_dir, 'mutations_data.csv')
+    result_dir = os.path.join(current_dir, "ECMPIA_result")
+    region_details_file_path = os.path.join(result_dir, 'region_details.csv')
+    region_weights_file_path = os.path.join(result_dir, 'region_weights.csv')
 
     try:
         # Process mutation data
@@ -49,8 +53,10 @@ def run_ecmpia_analysis(seq_length, plot=False):
 
             # Generate and save plots if the plot argument is True
             if plot:
-                result_dir = os.path.join(current_dir, "ECMPIA_result")
                 generate_plots(positional_weights_0_data, positional_weights_15_data, combined_data_csv, region_details, result_dir)
+                plot_region_heatmap(region_weights_file_path, result_dir)
+                plot_subregion_heatmap(region_details_file_path, result_dir)
+                plot_subsubregion_heatmap(region_details_file_path, result_dir)
 
     except ValueError as e:
         print(e)

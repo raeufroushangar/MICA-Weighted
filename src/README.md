@@ -61,3 +61,9 @@ The sequence is partitioned into two sets of sub-subregions: one starting from i
     - `plot_density_for_positional_weights`: Generates a density plot for positional weights.
     - `plot_positional_weights`: Generates a plot of positional weights for regions, subregions, and sub-subregions.
     - `generate_plots`: Generates and saves all plots to the ECMPIA_result output directory.
+
+- **heatmap_plotter.py**
+  - Functions for generating correlation heatmaps:
+    - `plot_region_heatmap`: Generates a heatmap of correlations between regions based on their positional weights.
+    - `plot_subregion_heatmap`: Generates a heatmap of correlations between subregions based on their positional weights.
+    - `plot_subsubregion_heatmap`: Generates a heatmap of correlations between sub-subregions based on their positional weights.
