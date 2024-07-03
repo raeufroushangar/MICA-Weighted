@@ -57,11 +57,11 @@ This directory contains the output results from the algorithm. The following fil
    - ![](ECMPIA_result/region_correlation_heatmap.png)
 
 2. **Subregions Correlation Heatmap**
-   - Description: This heatmap shows the correlation between subregions, based on their positional weights.
+   - Description: This heatmap shows the correlation between subregions based on their positional weights.
    - ![](ECMPIA_result/subregion_correlation_heatmap.png)
 
 3. **Subsubregions Correlation Heatmap**
-   - Description: This heatmap shows the correlation between sub-subregions, based on their positional weights.
+   - Description: This heatmap shows the correlation between sub-subregions based on their positional weights.
    - ![](ECMPIA_result/subsubregion_correlation_heatmap.png)
 
 
