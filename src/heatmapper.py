@@ -33,7 +33,7 @@ def plot_region_heatmap(file_path, result_dir):
     clustermap.ax_heatmap.set_yticklabels(clustermap.ax_heatmap.get_yticklabels(), rotation=0)
 
     # Add title to the plot
-    clustermap.fig.suptitle('Correlation Heatmap with Dendrogram Clustering on Columns', y=1.05)
+    clustermap.fig.suptitle('Regions Correlation Heatmap', y=1.05)
 
     # Save the plot
     plot_path = os.path.join(result_dir, 'region_correlation_heatmap.png')
@@ -117,7 +117,7 @@ def plot_subsubregion_heatmap(file_path, result_dir):
     clustermap.ax_heatmap.set_yticklabels(clustermap.ax_heatmap.get_yticklabels(), rotation=0)
 
     # Add title to the plot
-    clustermap.fig.suptitle('Subsubregions Correlation Heatmap', y=1.01)
+    clustermap.fig.suptitle('Sub-subregions Correlation Heatmap', y=1.01)
 
     # Save the plot
     plot_path = os.path.join(result_dir, 'subsubregion_correlation_heatmap.png')
