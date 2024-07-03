@@ -50,6 +50,9 @@ This directory contains the output results from the algorithm. The following fil
    - Description: This plot shows the positional weights across regions, subregions, and sub-subregions, with interval bars indicating the range and weight for each category.
    - ![](ECMPIA_result/positional_weights_of_regions_subregions_subsubregions.png)
 
+
+## Heatmaps
+
 ### Correlation Heatmaps with Dendrogram Clustering on Columns
 
 1. **Regions Correlation Heatmap**

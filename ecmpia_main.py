@@ -7,7 +7,7 @@ from src.data_processor import process_mutation_data, process_region_details
 from src.result_writer import write_processed_data, write_region_data_to_csv
 from src.data_bucketer import bucket_subsubregions_to_subregions, bucket_subregions_to_regions
 from src.plotter import generate_plots
-from src.heatmap_plotter import plot_region_heatmap, plot_subregion_heatmap, plot_subsubregion_heatmap
+from src.heatmapper import plot_region_heatmap, plot_subregion_heatmap, plot_subsubregion_heatmap
 
 def run_ecmpia_analysis(seq_length, plot=False):
     """
