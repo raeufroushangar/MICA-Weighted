@@ -19,7 +19,7 @@ def run_ecmpia_analysis(seq_length, plot=False):
     Raises:
     - ValueError: If seq_length is greater than 100000.
     """
-    if seq_length > 100000:
+    if seq_length > 10000:
         print("Error: Sequence length must not exceed 100000.")
         return
 
