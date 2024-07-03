@@ -12,6 +12,7 @@ The sequence is partitioned into two sets of sub-subregions: one starting from i
   - `partition_seq_length`: Partitions a given sequence into sub-subregions of length 30-45. It generates two lists of sub-subregions: one starting from index 0 and the other from index 15.
 
 - **mutation_and_weight_assignor.py**
+  - Functions to assign mutations and weights:
   - `assign_mutations`: Assigns mutations to their respective sub-subregions.
   - `assign_positional_weight`: Calculates positional weights based on distance.
 
