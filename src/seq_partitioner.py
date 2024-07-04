@@ -14,8 +14,8 @@ def partition_seq_length(seq_length):
     if not isinstance(seq_length, int):
         raise ValueError(f"Error: Sequence length must be an integer. Received: {seq_length}")
     
-    if seq_length < 45:
-        raise ValueError(f"Error: Sequence length must be at least 45. You entered {seq_length}")
+    if seq_length < 45 or seq_length > 100000:
+        raise ValueError(f"Error: Sequence length must be between 45 and 100000. You entered {seq_length}")
 
     # Initialize lists to store sub-subregions
     subsubregions_0 = []
