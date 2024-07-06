@@ -101,7 +101,7 @@ This directory contains the output results from the algorithm. The following fil
 
 5. Run analysis script:
    ```bash
-   python3 ecmpia_main.py -l <sequence_length>
+   python3 ecmpia_main.py -l <sequence_length> 
 
    note: Replace <sequence_length> with the length of your sequence. For example:
    python3 ecmpia_main.py -l 30000 
