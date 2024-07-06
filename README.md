@@ -82,13 +82,26 @@ This directory contains the output results from the algorithm. The following fil
    git clone https://github.com/raeufroushangar/ECMPIA.git
    cd ECMPIA
 
-2. Install required packages:
+2. Create a virtual environment inside the ECMPIA directory:
+   ```bash
+   python3 -m venv venv
+
+3. Activate the virtual environment:
+
+- On macOS and Linux:
+   ```bash
+   venv/bin/activate
+- On Windows:
+   ```bash
+   .\venv\Scripts\activate
+
+4. Install required packages:
    ```bash
    pip install -r requirements.txt
 
-3. Run analysis script:
+5. Run analysis script:
    ```bash
-   python3 ecmpia_main.py -l <sequence_length> --plot
+   python3 ecmpia_main.py -l <sequence_length>
 
    note: Replace <sequence_length> with the length of your sequence. For example:
    python3 ecmpia_main.py -l 30000 
@@ -96,6 +109,6 @@ This directory contains the output results from the algorithm. The following fil
    To generate plots, include the --plot flag:
    python3 ecmpia_main.py -l 30000 --plot
 
-4. To see the help message for the script:
+6. To see the help message for the script:
    ```bash
    python3 ecmpia_main.py -h
