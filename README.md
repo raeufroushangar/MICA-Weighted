@@ -95,7 +95,7 @@ This directory contains the output results from the algorithm. The following fil
    ```bash
    .\venv\Scripts\activate
 
-4. Install required packages:
+4. Install required packages
    ```bash
    pip install -r requirements.txt
 
