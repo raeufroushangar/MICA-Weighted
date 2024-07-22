@@ -15,7 +15,7 @@ The ECMPIA repository serves as a toolkit for researchers to implement the ECMPI
 
 This file contains sample mutation data with the following columns:
 - `mut_positions` (integer): Mutation positions in the sequence.
-- `impact_score` (float or integer): Impact score associated with mutations.
+- `impact_score` (Positive float or integer): Impact score or Shannon entropy associated with mutations.
 
 Replace the data in this file with your own mutation data before running the analysis.
 
