@@ -65,11 +65,17 @@ def process_region_details(regions):
             sub_start = subregion[0][0][0]
             sub_end = subregion[-1][0][1]
             subregion_weight = calculate_subregion_weights(subregion)
+            subsubregions_details = []
+            for k, subsubregion in enumerate(subregion, start=1):
+                subsubregions_details.append({
+                    'subsubregion_number': k,
+                    'subsubregion_data': subsubregion
+                })
             subregions_details.append({
                 'subregion_number': j,
                 'subregion_range': (sub_start, sub_end),
                 'subregion_weight': subregion_weight,
-                'subsubregions': subregion
+                'subsubregions': subsubregions_details
             })
         region_detail = {
             'region_number': i,
@@ -80,3 +86,4 @@ def process_region_details(regions):
         region_details.append(region_detail)
     
     return region_details
+

@@ -19,7 +19,6 @@ This file contains sample mutation data with the following columns:
 
 Replace the data in this file with your own mutation data before running the analysis.
 
-
 ## ECMPIA_result
 
 This directory contains the output results from the algorithm. The following files are generated:
@@ -29,44 +28,39 @@ This directory contains the output results from the algorithm. The following fil
 - `region_details.csv`: Detailed information about regions, subregions, and sub-subregions.
 - `region_weights.csv`: Range and weight for each region.
 
-
 ## Plots
 
-### Density, Scatter, Line, and Bar Plots
+### Density, Scatter, and Bar Plots
 
 1. **Density Plot of Positional Weights**
    - Description: This plot shows the density of positional weights across sub-subregions partitioned starting at index 0, index 15, and the combined data.
-   - ![](ECMPIA_result/density_plot_for_positional_weights.png)
+   - ![](ECMPIA_result/positional_weight_density_plot.png)
 
 2. **Scatter Plot of Positional Weights by Mutation Positions**
    - Description: This plot shows the positional weights by mutation positions for sub-subregions partitioned starting at index 0, index 15, and the combined data.
    - ![](ECMPIA_result/positional_weights_by_mutation_positions.png)
 
-3. **Line Plot of Positional Weights by Sub-subregion Ranges**
-   - Description: This plot shows the positional weights for sub-subregion ranges, with lines connecting the weights for sub-subregions partitioned starting at index 0, index 15, and the combined data.
-   - ![](ECMPIA_result/positional_weights_by_subsubregion_ranges.png)
-
-4. **Bar Plot of Positional Weights Across Regions, Subregions, and Sub-subregions**
+3. **Bar Plot of Positional Weights Across Regions, Subregions, and Sub-subregions**
    - Description: This plot shows the positional weights across regions, subregions, and sub-subregions, with interval bars indicating the range and weight for each category.
    - ![](ECMPIA_result/positional_weights_of_regions_subregions_subsubregions.png)
 
+4. **Scatter Plot of Positional Weights Across Regions and Subregions**
+   - Description: This plot shows the positional weights across regions and subregions, indicating the positional weights for each category.
+   - ![](ECMPIA_result/positional_weights_of_regions_subregions.png)
 
-## Heatmaps
+5. **Scatter Plot of Positional Weights of Regions**
+   - Description: This plot shows the positional weights of different regions in the sequence.
+   - ![](ECMPIA_result/positional_weights_regions.png)
 
-### Correlation Heatmaps with Dendrogram Clustering on Columns
+6. **Scatter Plot of Positional Weights of Subregions**
+   - Description: This plot shows the positional weights of different subregions in the sequence.
+   - ![](ECMPIA_result/positional_weights_subregions.png)
 
-1. **Regions Correlation Heatmap**
-   - Description: This heatmap shows the correlation between regions based on their positional weights.
-   - ![](ECMPIA_result/region_correlation_heatmap.png)
+7. **Scatter Plot of Positional Weights of Sub-subregions**
+   - Description: This plot shows the positional weights of different sub-subregions in the sequence.
+   - ![](ECMPIA_result/positional_weights_subsubregions.png)
 
-2. **Subregions Correlation Heatmap**
-   - Description: This heatmap shows the correlation between subregions based on their positional weights.
-   - ![](ECMPIA_result/subregion_correlation_heatmap.png)
-
-3. **Sub-subregions Correlation Heatmap**
-   - Description: This heatmap shows the correlation between sub-subregions based on their positional weights.
-   - ![](ECMPIA_result/subsubregion_correlation_heatmap.png)
-
+**Note:** The labels for plots 3, 4, 5, 6, and 7 are numbers representing regions, subregions, and sub-subregions. Users can associate these numbers with their respective ranges across the sequence using the information provided in the `region_details.csv` file.
 
 ## System Requirements
 
@@ -81,6 +75,7 @@ This directory contains the output results from the algorithm. The following fil
    ```bash
    git clone https://github.com/raeufroushangar/ECMPIA.git
    cd ECMPIA
+
 
 2. Create a virtual environment inside the ECMPIA directory:
    ```bash
@@ -99,15 +94,21 @@ This directory contains the output results from the algorithm. The following fil
    ```bash
    pip install -r requirements.txt
 
-5. Run analysis script:
+5. Run Analysis Script:
    ```bash
-   python3 ecmpia_main.py -l <sequence_length> 
+   python3 ecmpia_main.py -f <mutation_file_path> -r <result_dir_path> -l <sequence_length>
 
-   note: Replace <sequence_length> with the length of your sequence. For example:
-   python3 ecmpia_main.py -l 30000 
+   Replace: 
+   - <mutation_file_path> path to your mutations_data.csv file
+   - <result_dir_path> path of directory where you want to store the results
+   - <sequence_length> length of your sequence
+   
+   For example:
+   python3 -B ecmpia_main.py -f /mutations_data.csv -r /ECMPIA_result -l 30000
 
    To generate plots, include the --plot flag:
-   python3 ecmpia_main.py -l 30000 --plot
+   python3 ecmpia_main.py -f /mutations_data.csv -r /ECMPIA_result -l 30000 --plot
+
 
 6. To see the help message for the script:
    ```bash
