@@ -142,38 +142,26 @@ def extract_plot_data_from_details(region_details):
             sub_start, sub_end = subregion_detail['subregion_range']
             subregion_weight = subregion_detail['subregion_weight']
             if subregion_weight != 0:
-                subregion_data.append((sub_start, sub_end, subregion_weight, subregion_detail['subregion_number'], region_detail['region_number']))
+                subregion_data.append((sub_start, sub_end, subregion_weight, region_detail['region_number'], subregion_detail['subregion_number']))
 
             for subsubregion_detail in subregion_detail['subsubregions']:
                 # Extract sub-subregion data
                 subsub_start, subsub_end = subsubregion_detail['subsubregion_data'][0]
                 subsubregion_weight = subsubregion_detail['subsubregion_data'][2]
                 if subsubregion_weight != 0:
-                    subsubregion_data.append((subsub_start, subsub_end, subsubregion_weight, subsubregion_detail['subsubregion_number'], subregion_detail['subregion_number'], region_detail['region_number']))
+                    subsubregion_data.append((subsub_start, subsub_end, subsubregion_weight, region_detail['region_number'], subregion_detail['subregion_number'], subsubregion_detail['subsubregion_number']))
                 for mutation in subsubregion_detail['subsubregion_data'][1]:
                     mutation_positions.append(mutation[0])
                     mutation_weights.append(subsubregion_weight)
     
     return subsubregion_data, subregion_data, region_data, mutation_positions, mutation_weights
-
-# Function to add interval bars and labels
 def add_interval_bars(ax, data, color, label, hierarchy=False):
     for start, end, weight, *numbers in data:
         ax.hlines(weight, start, end, colors=color, alpha=0.4, linewidth=5)
         if hierarchy:
-            ax.text((start + end) / 2, weight, ",".join(map(str, numbers)), fontsize=7, color=color, ha='center', va='bottom')
+            ax.text((start + end) / 2, weight, f"{numbers[0]},{numbers[1]}", fontsize=7, color=color, ha='center', va='bottom')
         else:
             ax.text((start + end) / 2, weight, f"{numbers[0]}", fontsize=7, color=color, ha='center', va='bottom')
-
-# Function to add labels and prevent overlap
-def add_labels_with_prevention(ax, positions, weights, color):
-    y_positions = []
-    for i, (pos, weight) in enumerate(zip(positions, weights)):
-        y = weight + 0.02
-        while any(abs(y - prev_y) < 0.05 for prev_y in y_positions):
-            y += 0.05
-        y_positions.append(y)
-        ax.text(pos, y, str(pos), fontsize=7, color=color, ha='center', va='bottom')
 
 def plot_data(data, label, color, title, output_dir, file_name, hierarchy=False, points=False):
     fig, ax = plt.subplots(figsize=(15, 8))
@@ -184,9 +172,9 @@ def plot_data(data, label, color, title, output_dir, file_name, hierarchy=False,
             mid_point = (start + end) / 2
             ax.scatter(mid_point, weight, color=color, alpha=0.4, s=5)
             if hierarchy:
-                ax.text(mid_point, weight, ",".join(map(str, numbers)), fontsize=7, color=color, ha='center', va='bottom')
+                ax.text(mid_point, weight, f"{numbers[0]},{numbers[1]},{numbers[2]}", fontsize=7, color=color, ha='center', va='bottom')
             else:
-                ax.text(mid_point, weight, f"{numbers[0]}", fontsize=7, color=color, ha='center', va='bottom')
+                ax.text(mid_point, weight, f"{numbers[-1]}", fontsize=7, color=color, ha='center', va='bottom')
     else:
         # Add interval bars
         add_interval_bars(ax, data, color, label, hierarchy=hierarchy)
@@ -209,7 +197,6 @@ def plot_data(data, label, color, title, output_dir, file_name, hierarchy=False,
     plt.savefig(plot_file)
     plt.close(fig)
 
-
 def plot_regions_subregions_positional_weights(region_details, output_dir):
     # Extract plot data
     subsubregion_data, subregion_data, region_data, mutation_positions, mutation_weights = extract_plot_data_from_details(region_details)
@@ -218,14 +205,13 @@ def plot_regions_subregions_positional_weights(region_details, output_dir):
     fig, ax = plt.subplots(figsize=(15, 8))
 
     # Add interval bars for regions and subregions
-    add_interval_bars(ax, region_data, 'red', 'Regions')
-    add_interval_bars(ax, subregion_data, 'green', 'Subregions')
-
+    add_interval_bars(ax, region_data, 'red', 'Region')
+    add_interval_bars(ax, subregion_data, 'green', 'Subregion', hierarchy=True)
 
     # Custom legend
     handles = [
-        plt.Line2D([0], [0], color='red', linewidth=5, label='Regions', alpha=0.4),
-        plt.Line2D([0], [0], color='green', linewidth=5, label='Subregions', alpha=0.4),
+        plt.Line2D([0], [0], color='red', linewidth=5, label='Region', alpha=0.4),
+        plt.Line2D([0], [0], color='green', linewidth=5, label='Subregion', alpha=0.4),
     ]
 
     # Labels and legend
@@ -241,7 +227,6 @@ def plot_regions_subregions_positional_weights(region_details, output_dir):
     plt.savefig(plot_file)
     plt.close(fig)
 
-
 def plot_positional_weights(region_details, output_dir):
     # Extract plot data
     subsubregion_data, subregion_data, region_data, mutation_positions, mutation_weights = extract_plot_data_from_details(region_details)
@@ -250,20 +235,20 @@ def plot_positional_weights(region_details, output_dir):
     fig, ax = plt.subplots(figsize=(15, 8))
 
     # Add interval bars for regions and subregions
-    add_interval_bars(ax, region_data, 'red', 'Regions')
-    add_interval_bars(ax, subregion_data, 'green', 'Subregions')
+    add_interval_bars(ax, region_data, 'red', 'Region')
+    add_interval_bars(ax, subregion_data, 'green', 'Region, Subregion', hierarchy=True)
 
     # Plot points for sub-subregions
     for start, end, weight, *numbers in subsubregion_data:
         mid_point = (start + end) / 2
         ax.scatter(mid_point, weight, color='blue', alpha=0.4, s=5)
-        ax.text(mid_point, weight, ",".join(map(str, numbers)), fontsize=7, color='blue', ha='center', va='bottom')
+        ax.text(mid_point, weight, f"{numbers[0]},{numbers[1]},{numbers[2]}", fontsize=7, color='blue', ha='center', va='bottom')
 
     # Custom legend
     handles = [
-        plt.Line2D([0], [0], color='red', linewidth=5, label='Regions', alpha=0.4),
-        plt.Line2D([0], [0], color='green', linewidth=5, label='Subregions', alpha=0.4),
-        plt.Line2D([0], [0], marker='o', color='blue', markersize=3, label='Sub-subregions', linestyle='', alpha=0.4)
+        plt.Line2D([0], [0], color='red', linewidth=5, label='Region', alpha=0.4),
+        plt.Line2D([0], [0], color='green', linewidth=5, label='Subregion', alpha=0.4),
+        plt.Line2D([0], [0], marker='o', color='blue', markersize=3, label='Sub-subregion', linestyle='', alpha=0.4)
     ]
 
     # Labels and legend
@@ -281,8 +266,9 @@ def plot_positional_weights(region_details, output_dir):
 
     # Generate individual plots
     plot_data(region_data, 'Region', 'red', 'Positional Weights of Regions', output_dir, 'positional_weights_regions.png')
-    plot_data(subregion_data, 'Subregion, Region', 'green', 'Positional Weights of Subregions', output_dir, 'positional_weights_subregions.png', hierarchy=True)
-    plot_data(subsubregion_data, 'Sub-subregion, Subregion, Region', 'blue', 'Positional Weights of Sub-subregions', output_dir, 'positional_weights_subsubregions.png', hierarchy=True, points=True)
+    plot_data(subregion_data, 'Subregion', 'green', 'Positional Weights of Subregions', output_dir, 'positional_weights_subregions.png', hierarchy=True)
+    plot_data(subsubregion_data, 'Sub-subregion', 'blue', 'Positional Weights of Sub-subregions', output_dir, 'positional_weights_subsubregions.png', hierarchy=True, points=True)
+
 
 
 def generate_plots(positional_weights_0, positional_weights_15, combined_data, region_details, output_dir):
@@ -300,7 +286,6 @@ def generate_plots(positional_weights_0, positional_weights_15, combined_data, r
         os.makedirs(output_dir)
 
     plot_positional_weights_by_mutation_positions(positional_weights_0, positional_weights_15, combined_data, output_dir)
-    # plot_positional_weights_by_subsubregion_ranges(positional_weights_0, positional_weights_15, combined_data, output_dir)
     plot_regions_subregions_positional_weights(region_details, output_dir)
 
     plot_density_for_positional_weights(positional_weights_0, positional_weights_15, combined_data, output_dir)

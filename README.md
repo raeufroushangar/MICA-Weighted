@@ -60,7 +60,7 @@ This directory contains the output results from the algorithm. The following fil
    - Description: This plot shows the positional weights of different sub-subregions in the sequence.
    - ![](ECMPIA_result/positional_weights_subsubregions.png)
 
-**Note:** The labels for plots 3, 4, 5, 6, and 7 are numbers representing regions, subregions, and sub-subregions. Users can associate these numbers with their respective ranges across the sequence using the information provided in the `region_details.csv` file.
+**Note:** The labels for plots 3, 4, 5, 6, and 7 are numbers representing regions, subregions, and sub-subregions. The format for these labels is "region, subregion" for subregions and "region, subregion, sub-subregion" for sub-subregions. Users can associate these numbers with their respective ranges across the sequence using the information provided in the `region_details.csv` file.
 
 ## System Requirements
 
