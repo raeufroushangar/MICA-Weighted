@@ -33,7 +33,7 @@ This directory contains the output results from the algorithm. The following fil
 ### Density, Scatter, and Bar Plots
 
 1. **Density Plot of Positional Weights**
-   - Description: This plot shows the density of positional weights across sub-subregions partitioned starting at index 0, index 15, and the combined data.
+   - Description: This plot shows the density of positional weights of sub-subregions partitioned starting at index 0, index 15, and the combined data.
    - ![](ECMPIA_result/positional_weight_density_plot.png)
 
 2. **Scatter Plot of Positional Weights by Mutation Positions**
@@ -41,11 +41,11 @@ This directory contains the output results from the algorithm. The following fil
    - ![](ECMPIA_result/positional_weights_by_mutation_positions.png)
 
 3. **Bar Plot of Positional Weights Across Regions, Subregions, and Sub-subregions**
-   - Description: This plot shows the positional weights across regions, subregions, and sub-subregions, with interval bars indicating the range and weight for each category.
+   - Description: This plot shows the positional weights of regions, subregions, and sub-subregions in the sequence.
    - ![](ECMPIA_result/positional_weights_of_regions_subregions_subsubregions.png)
 
 4. **Scatter Plot of Positional Weights Across Regions and Subregions**
-   - Description: This plot shows the positional weights across regions and subregions, indicating the positional weights for each category.
+   - Description: This plot shows the positional weights of regions and subregions in the sequence.
    - ![](ECMPIA_result/positional_weights_of_regions_subregions.png)
 
 5. **Scatter Plot of Positional Weights of Regions**
