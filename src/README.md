@@ -1,6 +1,6 @@
 # Source Directory
 
-This directory contains the source code files for the ECMPIA project. Each file is organized by specific actions and functionalities.
+This directory contains the source code files for the MICA project. Each file is organized by specific actions and functionalities.
 
 ## Overview
 
@@ -20,7 +20,7 @@ The sequence is partitioned into two sets of sub-subregions: one starting from i
   - `weighted_ave_normalization`: Normalizes the weighted impact values by calculating their average.
 
 - **weight_calculator.py**
-  - Functions to calcuate weights:
+  - Functions to calculate weights:
   - `calculate_subsubregion_weights`: Calculates the weights for a sub-subregion by aggregating the weighted impact of the mutations within the sub-subregion.
   - `calculate_subregion_weights`: Calculates the weights for a subregion by aggregating the weights of its sub-subregions.
   - `calculate_region_weights`: Calculates the weights for a region by aggregating the weights of its subregions.
@@ -61,4 +61,4 @@ The sequence is partitioned into two sets of sub-subregions: one starting from i
     - `plot_positional_weights_by_subsubregion_ranges`: Generates a scatter plot of positional weights by sub-subregion ranges.
     - `plot_density_for_positional_weights`: Generates a density plot for positional weights.
     - `plot_positional_weights`: Generates a plot of positional weights for regions, subregions, and sub-subregions.
-    - `generate_plots`: Generates and saves all plots to the ECMPIA_result output directory.
+    - `generate_plots`: Generates and saves all plots to the MICA_result output directory.

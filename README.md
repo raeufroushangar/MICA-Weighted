@@ -1,10 +1,16 @@
-# ECMPIA: Encoding and Clustering Mutations Positional Impact Algorithm
+# MICA: Mutation Impact Clustering Algorithm
 
-The ECMPIA algorithm integrates partitioning and clustering methods to capture and analyze the positional impact of mutations (bases and regions) across DNA/RNA/protein sequences. It is designed to help researchers assess the impact of highly mutated bases and regions based on their positions and uncover the relationships between their positional impacts.
+The MICA algorithm integrates partitioning and clustering methods to capture and analyze the positional impact of mutations (bases and regions) across DNA/RNA/protein sequences. It is designed to help researchers assess the impact of highly mutated bases and regions based on their positions and uncover the relationships between their positional impacts.
+
+## Mutation Impact Clustering Algorithm (MICA) - Weighted Version
+
+This repository contains the weighted version of the Mutation Impact Clustering Algorithm (MICA), which performs weight calculations for analyzing mutation impacts.
+
+For the standard version of MICA without weight calculations, please visit the [MICA-Standard](https://github.com/yourusername/MICA-Standard) repository.
 
 ## Project Description
 
-The ECMPIA repository serves as a toolkit for researchers to implement the ECMPIA algorithm for analyzing mutation positional impacts.
+The MICA repository serves as a toolkit for researchers to implement the MICA algorithm for analyzing mutation positional impacts.
 
 ## Directory Structure
 
@@ -19,7 +25,7 @@ This file contains sample mutation data with the following columns:
 
 Replace the data in this file with your own mutation data before running the analysis.
 
-## ECMPIA_result
+## MICA_result
 
 This directory contains the output results from the algorithm. The following files are generated:
 - `positional_weights_0.csv`: Mapped mutations and calculated positional weights for sub-subregions partitioned starting at index 0.
@@ -34,31 +40,31 @@ This directory contains the output results from the algorithm. The following fil
 
 1. **Density Plot of Positional Weights**
    - Description: This plot shows the density of positional weights of sub-subregions partitioned starting at index 0, index 15, and the combined data.
-   - ![](ECMPIA_result/positional_weight_density_plot.png)
+   - ![](MICA_result/positional_weight_density_plot.png)
 
 2. **Scatter Plot of Positional Weights by Mutation Positions**
    - Description: This plot shows the positional weights by mutation positions for sub-subregions partitioned starting at index 0, index 15, and the combined data.
-   - ![](ECMPIA_result/positional_weights_by_mutation_positions.png)
+   - ![](MICA_result/positional_weights_by_mutation_positions.png)
 
 3. **Bar Plot of Positional Weights Across Regions, Subregions, and Sub-subregions**
    - Description: This plot shows the positional weights of regions, subregions, and sub-subregions in the sequence.
-   - ![](ECMPIA_result/positional_weights_of_regions_subregions_subsubregions.png)
+   - ![](MICA_result/positional_weights_of_regions_subregions_subsubregions.png)
 
 4. **Scatter Plot of Positional Weights Across Regions and Subregions**
    - Description: This plot shows the positional weights of regions and subregions in the sequence.
-   - ![](ECMPIA_result/positional_weights_of_regions_subregions.png)
+   - ![](MICA_result/positional_weights_of_regions_subregions.png)
 
 5. **Scatter Plot of Positional Weights of Regions**
    - Description: This plot shows the positional weights of different regions in the sequence.
-   - ![](ECMPIA_result/positional_weights_regions.png)
+   - ![](MICA_result/positional_weights_regions.png)
 
 6. **Scatter Plot of Positional Weights of Subregions**
    - Description: This plot shows the positional weights of different subregions in the sequence.
-   - ![](ECMPIA_result/positional_weights_subregions.png)
+   - ![](MICA_result/positional_weights_subregions.png)
 
 7. **Scatter Plot of Positional Weights of Sub-subregions**
    - Description: This plot shows the positional weights of different sub-subregions in the sequence.
-   - ![](ECMPIA_result/positional_weights_subsubregions.png)
+   - ![](MICA_result/positional_weights_subsubregions.png)
 
 **Note:** The labels for plots 3, 4, 5, 6, and 7 are numbers representing regions, subregions, and sub-subregions. The format for these labels is "region, subregion" for subregions and "region, subregion, sub-subregion" for sub-subregions. Users can associate these numbers with their respective ranges across the sequence using the information provided in the `region_details.csv` file.
 
@@ -73,11 +79,11 @@ This directory contains the output results from the algorithm. The following fil
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/raeufroushangar/ECMPIA.git
-   cd ECMPIA
+   git clone https://github.com/raeufroushangar/MICA-Weighted.git
+   cd MICA-Weighted
 
 
-2. Create a virtual environment inside the ECMPIA directory:
+2. Create a virtual environment inside the MICA directory:
    ```bash
    python3 -m venv venv
 
@@ -104,12 +110,12 @@ This directory contains the output results from the algorithm. The following fil
    - <sequence_length> length of your sequence
    
    For example:
-   python3 -B ecmpia_main.py -f /mutations_data.csv -r /ECMPIA_result -l 30000
+   python3 -B mica_main.py -f /mutations_data.csv -r /MICA_result -l 30000
 
    To generate plots, include the --plot flag:
-   python3 ecmpia_main.py -f /mutations_data.csv -r /ECMPIA_result -l 30000 --plot
+   python3 mica_main.py -f /mutations_data.csv -r /MICA_result -l 30000 --plot
 
 
 6. To see the help message for the script:
    ```bash
-   python3 ecmpia_main.py -h
+   python3 mica_main.py -h
